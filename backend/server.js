@@ -86,6 +86,22 @@ app.use('*', (req, res) => {
 // ─── Database & Server Start ──────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 
+console.log('🔍 Starting server...');
+console.log('🔍 NODE_ENV:', process.env.NODE_ENV);
+console.log('🔍 PORT:', process.env.PORT);
+console.log('🔍 MONGO_URI set:', !!process.env.MONGO_URI);
+console.log('🔍 JWT_SECRET set:', !!process.env.JWT_SECRET);
+
+if (!process.env.MONGO_URI) {
+  console.error('❌ MONGO_URI is not set! Cannot start server.');
+  process.exit(1);
+}
+
+if (!process.env.JWT_SECRET) {
+  console.error('❌ JWT_SECRET is not set! Cannot start server.');
+  process.exit(1);
+}
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -96,6 +112,7 @@ mongoose
   })
   .catch((err) => {
     console.error('❌ MongoDB connection error:', err.message);
+    console.error('❌ Full error:', err);
     process.exit(1);
   });
 
