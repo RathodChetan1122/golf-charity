@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? require('stripe')(process.env.STRIPE_SECRET_KEY)
+  : null;
 const User = require('../models/User');
 const Payment = require('../models/Payment');
 const { protect } = require('../middleware/auth');
@@ -13,6 +15,7 @@ const PLANS = {
 
 // ─── POST /api/payments/create-checkout ───────────────────────────────────────
 router.post('/create-checkout', protect, async (req, res) => {
+  if (!stripe) return res.status(503).json({ success: false, error: 'Payment system not configured yet' });
   try {
     const { plan } = req.body;
     if (!PLANS[plan]) return res.status(400).json({ success: false, error: 'Invalid plan' });
@@ -102,6 +105,9 @@ router.get('/history', protect, async (req, res) => {
 
 // ─── POST /api/payments/webhook — Stripe webhook ─────────────────────────────
 router.post('/webhook', async (req, res) => {
+  if (!stripe || !process.env.STRIPE_WEBHOOK_SECRET) {
+    return res.json({ received: true, note: 'Stripe not configured' });
+  }
   const sig = req.headers['stripe-signature'];
   let event;
 
