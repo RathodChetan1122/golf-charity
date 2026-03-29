@@ -1,10 +1,38 @@
 {
-  "name": "golf-charity-platform",
+  "name": "golf-charity-frontend",
   "version": "1.0.0",
-  "scripts": {
-    "build": "cd frontend && npm install && npm run build",
-    "start": "cd backend && node server.js",
-    "install-all": "npm install --prefix backend && npm install --prefix frontend"
+  "private": true,
+  "dependencies": {
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^3.0.0",
+    "axios": "^1.6.5",
+    "chart.js": "^4.4.1",
+    "date-fns": "^3.3.1",
+    "framer-motion": "^11.0.3",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^6.1.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.21.3",
+    "react-scripts": "^0.0.0"
   },
-  "dependencies": {}
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  },
+  "proxy": "http://localhost:5000",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
