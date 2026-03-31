@@ -8,7 +8,7 @@
 ## 🗂 Project Structure
 
 ```
-golf-charity-platform/
+golf-charity-platform/ 
 ├── backend/              # Node.js + Express + MongoDB API
 │   ├── models/           # Mongoose schemas (User, Charity, Draw, Winner, Payment)
 │   ├── routes/           # REST API routes
