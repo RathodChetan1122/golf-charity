@@ -10,7 +10,7 @@
 ```
 golf-charity-platform/ 
 ├── backend/              # Node.js + Express + MongoDB API
-│   ├── models/           # Mongoose schemas (User, Charity, Draw, Winner, Payment)
+│   ├── models/           # Mongoose schemas (User, Charity, Draw, Winner, Payment) 
 │   ├── routes/           # REST API routes
 │   ├── middleware/        # JWT auth, subscription guard, admin guard
 │   ├── utils/            # Draw engine, email, seed script
