@@ -5,7 +5,7 @@
   
 ---     
      
-## 🗂 Project Structure
+## 🗂 Project Structure 
   
 ```  
 golf-charity-platform/ 
