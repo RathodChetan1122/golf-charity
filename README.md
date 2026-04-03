@@ -6,7 +6,7 @@
 ---   
    
 ## 🗂 Project Structure
- 
+  
 ```  
 golf-charity-platform/ 
 ├── backend/              # Node.js + Express + MongoDB API
