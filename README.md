@@ -2,7 +2,7 @@
 **Full-Stack MERN Application** — Play · Win · Give
 
 > Built to spec from the Digital Heroes PRD. Monthly prize draws, Stableford score tracking, charity contributions, Stripe subscriptions, and a full admin panel.
-
+ 
 --- 
    
 ## 🗂 Project Structure
